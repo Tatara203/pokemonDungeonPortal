@@ -1,0 +1,59 @@
+.header{
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper{
+    display: flex;
+    width: 970px;
+    margin: 30px auto 40px;
+    flex-wrap: wrap;
+}
+
+.main{
+    flex: 1;
+    margin-left: 20px;
+    padding: 3px;
+    text-align: center;
+    background-image: url("../site_images/cross_lightOrange.gif");
+}
+
+.side{
+    margin-left: -100px;
+    flex: 0 0 275px;
+    padding: 3px;
+    background-image: url("../site_images/yellow_background.jpg");
+}
+
+body{
+    background-image: url("../site_images/blue_background.jpg");
+    font-size:1.2rem;
+}
+
+footer{
+    margin-top: 5px;
+    background-image: url("../site_images/lightGreen_background.jpg");
+    width: 100%;
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.wrapper::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#top{
+    position: relative;
+    top: 10px;
+    left: 500px;
+    bottom: 10px;
+    border-radius: 8px;
+    width: 100px;
+    background-color: lightyellow;
+}
+
+#top:hover{
+    background-color: gold;
+}
