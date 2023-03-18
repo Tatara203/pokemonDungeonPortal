@@ -1,0 +1,86 @@
+<?php
+    require_once 'encode.php';
+    session_start();
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="styleSheet" href="css/home.css">
+        <script type="text/javascript" src=""></script>
+        <title>ホーム</title>
+    </head>
+    <body>
+        <header class="header">
+            ポケモン不思議のダンジョン攻略サイト
+            <h1>ポケモン不思議のダンジョン攻略サイトへようこそ!</h1>
+        </header>
+        <article>
+            <div class="side">
+                    <h3><span>本サイトで</span><span>解説する</span>ダンジョン</h3>
+                    <ol>
+                        <li><span>うんめいの</span>とう（空の探検隊）</li>
+                        <li><span>ゼロの島南部</span>（時/闇/空の探検隊）</li>
+                        <li><span>究極の荒野</span>（マグナゲート）</li>
+                    </ol>
+                    <div id="content_search">
+                        <h3>検索</h3>
+                        <p><span>各シリーズの</span><span>ポケモンの</span><span>データを</span><span>検索</span>できます。</p>
+                        <a href="./searchdetail/pokemonsearch.html">ポケモン検索</a>
+                        <p><span>各シリーズの</span><span>道具の効果・入手法などを</span><span>検索</span>できます。</p>
+                        <a href="./searchdetail/goodsSearch.html">どうぐ検索</a>
+                        <p><span>わなの種類と</span><span>効果、</span><span>出現する</span><span>ダンジョンなどを</span><span>検索</span>できます。</p>
+                        <a href="./searchdetail/trapsSearch.html">わな検索</a>
+                    </div>
+                    <div class="user_search" >
+                        <p>ユーザ検索</p>
+                        <form method="POST" action="./db/users/searchUser.php">
+                            <input type="text" placeholder="名前で検索" id="membername" 
+                                name="membername" />
+                            <input type="submit" id="userSearch" value="検索"/>
+                        </form>
+                        <p><span>攻略記事などを</span><span>投稿している</span><span>ユーザを</span>検索できます。</p>
+                        <div id="createArticle">
+                            <h3>攻略記事投稿</h3>
+                            <form method="get" action="./createArticle/editPage.html">
+                                <button type="button" id="createArticle">作成する</button>
+                            </form>
+                            <p><span>ダンジョンの</span><span>攻略記事を</span>作成しましょう!</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="main">
+                <?php if(isset($_SESSION['user_name'])) : ?>
+                <p>こんにちは、<?=e($_SESSION['user_name'])?>さん！</p>
+                <form method="get" action="./registration/logout.html">
+                    <button id="logout">ログアウト</button>
+                </form>
+                <?php else : ?>
+                <form method = "get" action="./registration/login.html">
+                    <button id = "login">ログイン</button>
+                </form>
+                <form method="get" action="./registration/register.html">
+                    <button id="Registration">会員登録</button>
+                </form>
+               <?php endif; ?>
+                <p><span>このサイトでは、</span><span>ポケモン不思議のダンジョンシリーズの</span><span>難関ダンジョンについて</span><span>調べたり、</span><span>攻略記事を</span><span>投稿できたり</span>します。</p>
+           
+                <h2>攻略記事投稿</h2>
+                <p><span>このサイトでは、</span><span>難関ダンジョンの</span><span>攻略記事を</span>投稿できます。</p>
+                <p><small>投稿できるコンテンツの一覧</small></p>
+                <li><span>記事本文</span><span>（攻略したダンジョン、</span><span>ポケモンを</span><span>明記して</span>ください。）</li>
+                <li><span>画像</span><span>（記事に関連のあるもの、</span><span>1つの</span><span>記事に</span><span>3枚まで</span><span>投稿</span>できます。）</li>
+                <li><span>ランク評価</span><span>（攻略した</span><span>ポケモンの</span><span>強さを</span>投票できます。）</li>
+                <h2>データ検索</h2>
+                <p><span>ポケモンの</span><span>詳細情報や</span><span>各種アイテム・わななどの</span><span>情報を</span>調べられます。</p>
+                <h2><span>アクセス数の</span>多いページ</h2>
+                <p><span>直近1週間で</span><span>よくアクセスされている</span>ページです。</p>
+            </div>
+            
+        </article>
+            <footer class="footer_home">
+                <p><small>このサイトはポケモン不思議のダンジョンに関する情報を掲載する個人サイトです。</small></p>
+                <p><small>公序良俗に反しない範囲でお楽しみください。</small></p>
+            </footer>
+    </body>
+</html>

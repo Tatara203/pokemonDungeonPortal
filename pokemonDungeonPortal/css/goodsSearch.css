@@ -1,0 +1,52 @@
+body{
+    background-image: url("../site_images/blue_background.jpg");
+}
+
+#top{
+    position: relative;
+    top: 10px;
+    left: 1100px;
+    bottom: 10px;
+    border-radius: 8px;
+    background-color: lightyellow;
+}
+
+#wordsearch{
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+#wordsubmit{
+    background-color: lightyellow;
+    margin-left: 5px;
+    border-radius: 8px;
+}
+
+article{
+    display: flex;
+    list-style: none;
+    
+}
+
+.side{
+    margin-top: 10px;
+    background-image: url("../site_images/yellow_background.jpg");
+    word-wrap: normal;
+    width: 300px;
+    line-break: normal;
+    text-align: center;
+}
+
+.main{
+    margin-top: 10px;
+    word-wrap: normal;
+    background-image: url("../site_images/cross_lightOrange.gif");
+    width: 900px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.field{
+    margin-top: 5px;
+}
+

@@ -1,0 +1,50 @@
+.header{
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper{
+    width: 970px;
+    margin: 30px auto 40px;
+}
+
+.main{
+    display: block;
+    float: right;
+    width:660px;
+    padding: 3px;
+    background-image: url("../site_images/cross_lightOrange.gif");
+}
+
+.side{
+    float: left;
+    width: 275px;
+    background-image: url("../site_images/yellow_background.jpg");
+}
+
+body{
+    background-image: url("../site_images/blue_background.jpg");
+    font-size:1.2rem;
+}
+
+footer{
+    background-image: url("../site_images/lightGreen_background.jpg");
+    width: 100%;
+}
+
+.wrapper::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#login{
+    border-radius: 8px;
+    width: 100px;
+    background-color: lightyellow;
+}
+
+span{
+    display: inline-block;
+}
+

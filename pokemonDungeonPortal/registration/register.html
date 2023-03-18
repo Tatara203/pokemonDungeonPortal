@@ -1,0 +1,48 @@
+<?php
+    require_once '../encode.php';
+    session_start();
+?>
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>会員登録</title>
+        <link rel="styleSheet" href="../css/register.css">
+    </head>
+    <body>
+        <header>
+            ポケモン不思議のダンジョン攻略サイト
+            <form action="../index.html">
+            <button id="top">トップへ</button>
+            </form>
+        </header>
+        <article>
+        <div class="side">
+            <h3>本サイトで解説するダンジョン</h3>
+            <ol>
+                <li>うんめいのとう（空の探検隊）</li>
+                <li>ゼロの島南部（時/闇/空の探検隊）</li>
+                <li>究極の荒野（マグナゲート）</li>
+            </ol>
+            <div id="search">
+                <h3>検索</h3>
+                <p>各シリーズのポケモンのデータを検索できます</p>
+                <a href="../searchdetail/pokemonSearch.html">ポケモン検索</a>
+                <p>各シリーズの道具の効果・入手法などを検索できます</p>
+                <a href="../searchdetail/goodsSearch.html">どうぐ検索</a>
+                <p>わなの種類と効果、出現するダンジョンなどを検索できます。</p>
+                <a href="../searchdetail/trapsSearch.html">わな検索</a>
+            </div>
+         </div>
+         <div class="main">
+            <h1>会員登録</h1>
+            <p>以下の情報を入力して会員登録を行ってください。</p>
+            <form class="registinfo" action="../DB/users/createUser.php" method="POST">
+                <label>ニックネーム（12文字以下）<input type="text" id="member_name"name="member_name" maxlength="12"></label>
+                <label>パスワード（8文字以上12文字以下）<input type="password" id="pwd" name="pwd" minlength="8" maxlength="12"></label>
+                <br>
+                <input type="submit" id="submit">
+                <p>ニックネームとパスワードはログインに必要です。忘れないようにしてください。</p>
+            </form>
+         </div>
+        </article>
+    </body>

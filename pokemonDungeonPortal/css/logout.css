@@ -1,0 +1,12 @@
+body{
+    background-image: url("../site_images/blue_background.jpg");
+}
+
+#top{
+    position: relative;
+    top: 10px;
+    left: 1100px;
+    bottom: 10px;
+    border-radius: 8px;
+    background-color: lightyellow;
+}
