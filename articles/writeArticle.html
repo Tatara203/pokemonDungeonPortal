@@ -1,11 +1,37 @@
 <?php
-    require_once __DIR__. '../default.php';
+    require_once '../default.php';
+    session_start();
+    if(! isset($_SESSION['user_name'])){
+        header('Location:http://kotaro.jp/pokemonDungeonPortal/registration/login.html');
+    }
+
 ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <link rel="styleSheet" href="../css/writeArticle.css">
     <title>攻略記事作成ページ</title>
 </head>
 <body>
-    <?php printHeader(); ?>
+    <p><?php printHeader(); ?></p>
+    <div class="wrapper">
+        <div class="side">
+            <p><?php printSideMenu(); ?></p>
+        </div>
+        <main class="main">
+            <form action="../index.html">
+                <button type="submit" id="top">トップへ</button>
+            </form>
+            <p>攻略記事作成ページです。</p>
+            <form method="POST">
+                <textarea cols="100" rows="50" wrap="hard" id="content"></textarea>
+                <button id="upload" formaction="../DB/submitArticle.php">投稿する</button>
+                <button id="save" formaction="">一時保存</button>
+            </form>
+        </main>
+        <footer class="footer">
+            <p><small>このサイトはポケモン不思議のダンジョンに関する情報を掲載する個人サイトです。</small></p>
+            <p><small>公序良俗に反しない範囲でお楽しみください。</small></p>
+        </footer>
+    </div>
 </body>
