@@ -1,0 +1,66 @@
+<?php
+    require_once '../encode.php';
+    session_start();
+    $rows = $_SESSION['search_result'];
+?>
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="styleSheet" href="../css/pokeSearchResult.css"></link>
+    <title>ポケモン検索結果</title>
+</head>
+<body>
+    <header class="header">
+        ポケモン不思議のダンジョン攻略サイト
+        <h1>ポケモン不思議のダンジョン攻略サイトへようこそ!</h1>
+    </header>
+    <form action="../index.html">
+        <button id="top">トップへ</button>
+    </form>
+    <div class="wrapper">
+    <div class="side">
+        <h3>本サイトで解説するダンジョン</h3>
+        <ol>
+            <li>うんめいのとう（空の探検隊）</li>
+            <li>ゼロの島南部（時/闇/空の探検隊）</li>
+            <li>究極の荒野（マグナゲート）</li>
+        </ol>
+        <div id="search">
+            <h3>検索</h3>
+            <p>各シリーズのポケモンのデータを検索できます</p>
+            <a href="../searchdetail/pokemonsearch.html">ポケモン検索</a>
+            <p>各シリーズの道具の効果・入手法などを検索できます</p>
+            <a href="../searchdetail/goodsSearch.html">どうぐ検索</a>
+            <p>わなの種類と効果、出現するダンジョンなどを検索できます。</p>
+            <a href="../searchdetail/trapsSearch.html">わな検索</a>
+        </div>
+     </div>
+     <main class="main">
+        <h3>以下の結果が見つかりました。</h3>
+                <table id="result" border="1">
+                <tr>
+                    <th>図鑑番号</td>
+                    <th>名前</td>
+                    <th>タイプ1</td>
+                    <th>タイプ2</td>
+                    <th>賢さタイプ</td>
+                    <th>移動タイプ</td>
+                    <th>特性1</td>
+                    <th>特性2</td>
+                </tr>
+                <?php foreach($rows as $row): ?>
+                <tr>
+                    <td><?=e($row['index_num']) ?></td>
+                    <td><?=e($row['pokemon_name']) ?></td>
+                    <td><?=e($row['type1']) ?></td>
+                    <td><?=e($row['type2'] ?? '-') ?></td>
+                    <td><?=e($row['special_skills_type']) ?></td>
+                    <td><?=e($row['move_type']) ?></td>
+                    <td><?=e($row['ability1']) ?></td>
+                    <td><?=e($row['ability2'] ?? '-') ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </main>
+    </div>
+</body>
