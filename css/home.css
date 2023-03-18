@@ -1,0 +1,78 @@
+.header{
+    width: 100%
+}
+
+body{
+    background-image: url("../site_images/blue_background.jpg");
+    font: 1em sans-serif;
+}
+
+#Registration{
+    position: relative;
+    top: -60px;
+    left: 400px;
+    bottom: 10px;
+    border-radius: 8px;
+    width: 100px;
+    background-color: lightyellow;
+}
+
+#login{
+    position: relative;
+    top: -75px;
+    left: 400px;
+    bottom: 10px;
+    border-radius: 8px;
+    width: 100px;
+    background-color: lightyellow;
+}
+
+#logout{
+    position: relative;
+    top: -100px;
+    left: 400px;
+    bottom: 10px;
+    border-radius: 8px;
+    width: 100px;
+    background-color: lightyellow;
+}
+
+.header{
+    text-align: center;
+}
+
+.side{
+    margin-top: 10px;
+    background-image: url("../site_images/yellow_background.jpg");
+    background-repeat: repeat-y;
+    overflow-wrap: normal;
+    line-break: normal;
+    text-align: center;
+}
+
+.main{
+    margin-top: 10px;
+    padding: 5px;
+    background-image: url("../site_images/cross_lightOrange.gif");
+    margin-left: 10px;
+    text-align: center;
+}
+
+article{
+    display: flex;
+    list-style: none;
+}
+
+.footer_home{
+    background-image: url("../site_images/lightGreen_background.jpg");
+    text-align: center;
+    width: 100%;
+}
+
+li{
+    list-style: none;
+}
+
+span{
+    display: inline-block;
+}

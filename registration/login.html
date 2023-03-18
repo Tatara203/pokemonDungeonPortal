@@ -1,0 +1,67 @@
+<?php
+    require_once '../encode.php';
+    session_start();
+?>
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="styleSheet" href="../css/login.css">
+    </head>
+    <body>
+        <header class="header">
+            <p>ポケモン不思議のダンジョン攻略サイト</p>
+            <h1>ポケモン不思議のダンジョン攻略サイトへようこそ！</h1>
+        </header>
+    <div class="wrapper">
+        <main class="main">
+            <h2>
+                ログインページ
+            </h2>
+            <p>ユーザネームとパスワードを入力してログインしてください。</p>
+            <form method="post" action="../DB/users/loginLogic.php" name="login">
+                <label for="member_name">ユーザネーム</label>
+                <input type="text" name="member_name" id="member_name">
+
+                <label for="pwd">パスワード</label>
+                <input type="password" name="pwd" id="pwd">
+                <input type="submit" name="loginbtn"  id="login" value="ログイン">
+            </form>
+        </main>
+        <div class="side">
+            <h3><span>本サイトで</span><span>解説する</span>ダンジョン</h3>
+            <ol>
+                <li><span>うんめいの</span>とう（空の探検隊）</li>
+                <li><span>ゼロの島南部</span>（時/闇/空の探検隊）</li>
+                <li><span>究極の荒野</span>（マグナゲート）</li>
+            </ol>
+            <div id="content_search">
+                <h3>検索</h3>
+                <p><span>各シリーズの</span><span>ポケモンの</span><span>データを</span><span>検索</span>できます。</p>
+                <a href="../searchdetail/pokemonsearch.html">ポケモン検索</a>
+                <p><span>各シリーズの</span><span>道具の効果・入手法などを</span><span>検索</span>できます。</p>
+                <a href="../searchdetail/goodsSearch.html">どうぐ検索</a>
+                <p><span>わなの種類と</span><span>効果、</span><span>出現する</span><span>ダンジョンなどを</span><span>検索</span>できます。</p>
+                <a href="../searchdetail/trapsSearch.html">わな検索</a>
+            </div>
+            <div id="user_search">
+                <p>ユーザ検索</p>
+                <form type="get" action="../db/users/searchUser.php">
+                    <input type="text" placeholder="名前で検索">
+                    <input type="submit" id="userSearch" value="検索">
+                </form>
+                <p><span>攻略記事などを</span><span>投稿している</span><span>ユーザを</span>検索できます。</p>
+            </div>
+            <div id="createArticle">
+                <h3>攻略記事投稿</h3>
+                    <form method="get" action="./createArticle/editPage.html">
+                        <button type="button" id="createArticle">作成する</button>
+                    </form>
+                    <p>ダンジョンの攻略記事を作成しましょう!</p>
+            </div>
+        </div>
+    </div>
+        <footer class="footer">
+            <p><small>このサイトはポケモン不思議のダンジョンに関する情報を掲載する個人サイトです。</small></p>
+            <p><small>公序良俗に反しない範囲でお楽しみください。</small></p>
+        </footer>
+    </body>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>会員登録</title>
+        <link rel="styleSheet" href="../css/goodsSearch.css">
+    </head>
+    <body>
+        <header>
+            ポケモン不思議のダンジョン攻略サイト
+            <form action="../index.html">
+                <button id="top">トップへ</button>
+            </form>
+        </header>
+        <article>
+         <div class="side">
+            <h3>本サイトで解説するダンジョン</h3>
+            <ol>
+                <li>うんめいのとう（空の探検隊）</li>
+                <li>ゼロの島南部（時/闇/空の探検隊）</li>
+                <li>究極の荒野（マグナゲート）</li>
+            </ol>
+            <div id="search">
+                <h3>検索</h3>
+                <p>各シリーズのポケモンのデータを検索できます</p>
+                <a href="../searchdetail/pokemonsearch.html">ポケモン検索</a>
+                <p>各シリーズの道具の効果・入手法などを検索できます</p>
+                <a href="../searchdetail/goodsSearch.html">どうぐ検索</a>
+                <p>わなの種類と効果、出現するダンジョンなどを検索できます。</p>
+                <a href="../searchdetail/trapsSearch.html">わな検索</a>
+            </div>
+         </div>
+        <div class="main">
+        <label>名前検索
+            <form><input type="text" id="wordsearch"><input type="submit" id="wordsubmit"></form>
+        </label>
+            <fieldset class="field">
+            <legend>詳細検索</legend>
+                <p>調べるシリーズを選んでください</p>
+                <select size="5" name="series">
+                    <option name="none" label="未選択" selected>未選択</option>
+                    <option name="rescue" label="救助隊">救助隊</option>
+                    <option name="explorer" label="空の探検隊">空の探検隊</option>
+                    <option name="magnagate" label="マグナゲート">マグナゲート</option>
+                    <option name="super" label="超ポケダン">超ポケダン</option>
+                </select>
+
+                <p>検索するデータを選んでください</p>
+                <input type="radio" id="goods" name="material" value="tool"/>
+                <label for="pokemon">装備品</label>
+                <input type="radio" id="goods" name="material" value="crystal"/>
+                <label for="goods">不思議玉</label>
+                <input type="radio" id="traps" name="material" value="traps"/>
+                <label for="fruits">きのみ</label>
+            </fieldset>
+        </div>
+        </article>
+    </body>

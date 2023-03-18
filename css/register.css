@@ -1,0 +1,51 @@
+body{
+    background-image: url("../site_images/blue_background.jpg");
+    font: 1em sans-serif;
+}
+
+.header{
+    text-align: center;
+}
+
+.side{
+    background-image: url("../site_images/yellow_background.jpg");
+    width: 300px;
+    text-align: center;
+}
+
+.main{
+    background-image: url("../site_images/cross_lightOrange.gif");
+    width: 900px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+article{
+    display: flex;
+    list-style: none;
+    margin-top: 15px;
+}
+
+p.main{
+    word-wrap: normal;
+}
+
+#submit{
+    background-color:rgb(14, 203, 203);
+    margin-top: 10px;
+    border-radius: 8px;
+    width:100px;
+}
+
+#top{
+    position: relative;
+    top: 10px;
+    left: 1100px;
+    bottom: 15px;
+    border-radius: 8px;
+    background-color: lightyellow;
+}
+
+#inputA{
+    border-radius: 8px;
+}
