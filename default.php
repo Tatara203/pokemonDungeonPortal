@@ -4,6 +4,9 @@
         <header class="header">
             ポケモン不思議のダンジョン攻略サイト
             <h1>ポケモン不思議のダンジョン攻略サイトへようこそ!</h1>
+            <form action="../index.html">
+                <button type="submit" id="top">トップへ</button>
+            </form>
         </header>';
     }
 

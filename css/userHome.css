@@ -47,22 +47,22 @@ footer{
 #top{
     position: relative;
     top: 10px;
-    left: 500px;
+    left: 600px;
     bottom: 10px;
     border-radius: 8px;
     width: 100px;
     background-color: lightyellow;
 }
 
-#top:hover{
-    background-color: gold;
+#result{
+    margin-left: 60px;
+    text-align: center;
+    border-color: grey;
+    background: lightyellow;
+    overflow-wrap: normal;
 }
 
-#title{
-    resize: none;
-}
-
-#content{
-    resize: none;
-    margin-top: 3px;
+#result th{
+    background: lightblue;
+    color: white;
 }

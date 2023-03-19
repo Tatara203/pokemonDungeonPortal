@@ -5,7 +5,9 @@
 
 .wrapper{
     width: 970px;
+    max-width: 970px;
     margin: 30px auto 40px;
+    box-sizing: border-box;
 }
 
 .main{

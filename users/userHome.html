@@ -1,0 +1,57 @@
+<?php
+    require_once '../default.php';
+    require_once '../encode.php';
+    require_once '../db/users/searchUserArticle.php';
+
+    session_start();
+    if(! isset($_SESSION['user_name'])){
+        header('Location:http://kotaro.jp/pokemonDungeonPortal/index.html');
+    }
+    $rows = [];
+    $rows = searchUserArticle($_SESSION['user_name']);
+?>
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="styleSheet" href="../css/userHome.css">
+    <title>ユーザーページ</title>
+</head>
+<body>
+    <p><?php printHeader(); ?></p>
+    <div class="wrapper">
+        <div class="side">
+            <p><?php printSideMenu(); ?></p>
+        </div>
+        <main class="main">
+            <p><?=e($_SESSION['user_name'])?>さんのユーザページです。</p>
+            <p>作成記事一覧</p>
+            <table id= "result" border="1">
+                <tr>
+                    <th>タイトル</th>
+                    <th>最終更新日</th>
+                    <th>公開ステータス</th>
+                </tr>
+                <?php foreach($rows as $row): ?>
+                
+                <tr>
+                    <td>
+                        <form method="GET">
+                            <a href="../db/users/editArticle.php?title=<?=urlencode($row['title']) ?>"><?=e($row['title']) ?>
+                        </form>
+                    </td>
+                    <td><?=e($row['update_date']) ?></td>
+                    <td><?php if($row['isDisclosed'] == 0){
+                        echo '一時保存中';
+                    }else{
+                        echo '公開中';
+                    } ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </main>
+        <footer class="footer">
+            <p><small>このサイトはポケモン不思議のダンジョンに関する情報を掲載する個人サイトです。</small></p>
+            <p><small>公序良俗に反しない範囲でお楽しみください。</small></p>
+        </footer>
+    </div>
+</body>

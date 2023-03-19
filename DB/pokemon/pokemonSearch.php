@@ -3,7 +3,6 @@
     require_once '../../encode.php';
     session_start();
 ?>
-<!DOCTYPE html>
 <?php
     $pokeName = isset($_POST['pokemon_name']) ? $_POST['pokemon_name'] : '';
     try{

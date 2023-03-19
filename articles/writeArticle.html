@@ -1,15 +1,22 @@
 <?php
     require_once '../default.php';
+    require_once '../encode.php';
     session_start();
     if(! isset($_SESSION['user_name'])){
         header('Location:http://kotaro.jp/pokemonDungeonPortal/registration/login.html');
     }
 
+    $rows = $_SESSION['search_result'];
+
+    if(isset($rows[0]['id'])){
+        $_SESSION['id'] = $rows[0]['id'];
+    }
 ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
     <link rel="styleSheet" href="../css/writeArticle.css">
+    <script src="../js/handleArticle.js"></script>
     <title>攻略記事作成ページ</title>
 </head>
 <body>
@@ -19,15 +26,32 @@
             <p><?php printSideMenu(); ?></p>
         </div>
         <main class="main">
-            <form action="../index.html">
-                <button type="submit" id="top">トップへ</button>
-            </form>
             <p>攻略記事作成ページです。</p>
-            <form method="POST">
-                <textarea cols="100" rows="50" wrap="hard" id="content"></textarea>
-                <button id="upload" formaction="../DB/submitArticle.php">投稿する</button>
-                <button id="save" formaction="">一時保存</button>
+            <form method="POST" name="createArticle" action="../DB/users/registerArticles.php">
+                <div>
+                    <label for="title">タイトル(100字以内)</label>
+                    <textarea name="title" cols="100" rows="2" required>
+                        <?php 
+                            if(isset($rows[0]['title'])){
+                              echo  e($rows[0]['title']);
+                            }
+                        ?>
+                    </textarea>
+                </div>
+                <div>
+                    <label for="content">本文(10000字以内)</label>
+                    <textarea cols="100" rows="50" wrap="hard" id="content" name="content">
+                        <?php 
+                            if(isset($rows[0]['title'])){
+                              echo  e($rows[0]['content']);
+                            }
+                        ?>
+                    </textarea>
+                </div>
+                <button type="submit" value="upload" name="action">投稿する</button>
+                <button type="submit" value="save" name="action">一時保存</button>
             </form>
+            <button type="button" id="PageTop" onclick="toPageTop()">ページトップへ</button>
         </main>
         <footer class="footer">
             <p><small>このサイトはポケモン不思議のダンジョンに関する情報を掲載する個人サイトです。</small></p>

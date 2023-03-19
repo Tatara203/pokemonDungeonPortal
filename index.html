@@ -1,6 +1,7 @@
 <?php
     require_once 'encode.php';
     session_start();
+    $_SESSION['search_result'] = [];
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,19 +33,18 @@
                         <p><span>わなの種類と</span><span>効果、</span><span>出現する</span><span>ダンジョンなどを</span><span>検索</span>できます。</p>
                         <a href="./searchdetail/trapsSearch.html">わな検索</a>
                     </div>
-                    <div class="user_search" >
-                        <p>ユーザ検索</p>
-                        <form method="POST" action="./db/users/searchUser.php">
-                            <input type="text" placeholder="名前で検索" id="membername" 
-                                name="membername" />
-                            <input type="submit" id="userSearch" value="検索"/>
-                        </form>
-                        <p><span>攻略記事などを</span><span>投稿している</span><span>ユーザを</span>検索できます。</p>
-                        <div id="createArticle">
-                            <h3>攻略記事投稿</h3>
-                            <form method="get" action="./articles/writeArticle.html">
-                                <button type="button" id="createArticle">作成する</button>
+                        <div class="user_search" >
+                            <p>ユーザ検索</p>
+                            <form method="POST" action="./db/users/searchUser.php">
+                                <input type="text" placeholder="名前で検索" id="membername" 
+                                    name="membername" />
+                                <input type="submit" id="userSearch" value="検索"/>
                             </form>
+                            <p><span>攻略記事などを</span><span>投稿している</span><span>ユーザを</span>検索できます。</p>
+                        </div>
+                        <div id="Articles">
+                            <h3>攻略記事投稿</h3>
+                                <button type="button" id="createArticle" onclick="location.href='./articles/writeArticle.html'">作成する</button>
                             <p><span>ダンジョンの</span><span>攻略記事を</span>作成しましょう!</p>
                         </div>
                     </div>
@@ -54,6 +54,9 @@
                 <p>こんにちは、<?=e($_SESSION['user_name'])?>さん！</p>
                 <form method="get" action="./registration/logout.html">
                     <button id="logout">ログアウト</button>
+                </form>
+                <form method="get" action="./users/userHome.html">
+                    <button id="userHome">ユーザーページへ</button>
                 </form>
                 <?php else : ?>
                 <form method = "get" action="./registration/login.html">
